@@ -20,7 +20,7 @@ A considerar que:
 Para enviar la request es necesario llamar el metodo _send()_ de la siguiente manera:
 ```javascript
 xhr.open("get", "ejemplo.php", true);
-xhr.send(null):
+xhr.send(null);
 ```
 
 El metodo _send()_ acepta un solo argumento, que es la informacion a enviar en el cuerpo de la peticion. Si no se necesita cuerpo para enviar datos se le debe pasar _null_, ya que este argumento es obligatorio en algunos navegadores. Cuando se llama al _send()_ es cuando la request viaja hacia al servidor.
@@ -32,4 +32,18 @@ Cuando la respuesta se recibe, las propiedades del objeto XHR se rellenan con in
 * _responseXML_ -- Contiene un document XML con la informacion de la response, siempre que la response contenga su content type establecido como _"text/xml"_ o _"application/xml"_.
 * _status_ -- El codigo HTTP de la response.
 * _statusText_ -- La descripcion del codigo HTTP de la response.
+
+Cuando se recibe la respuesta, el primer paso es comprobar la propiedad _status_ para asegurarnos que la respuesta ha sido satisfactoria. Generalmente, los codigos HTTP dentro de los 200s con consideradas satisfactorias y se esperara que algun contenido este disponible en la propiedad _responseText_ o en la propiedad _responseXML_ si el content type de la response es el adecuado. Si _status_ es 304 indica que el recurso no ha sido modificado y que esta recogiendo de la cache del navegador.
+Para asegurarnos que la response ha sido recibida correctamente deberemos comprobar la propiedad _status_ de la siguiente manera:
+
+```javascript
+xhr.open("get", "ejemplo.php", true);
+xhr.send(null);
+
+if ( (xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+  console.log(xhr.responseText);
+} else {
+  console.log("Ha ocurrido un error: " + xhr.status);
+}
+```
 

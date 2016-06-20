@@ -23,4 +23,13 @@ xhr.open("get", "ejemplo.php", true);
 xhr.send(null):
 ```
 
-El metodo _send()_ acepta un solo argumento, que es la informacion a enviar en el cuerpo de la peticion. Si no se necesita cuerpo para enviar datos se le debe pasar _null_, ya que este argumento es obligatorio en algunos navegadores. Cuando se llama al _send()_ la request viaja hacia al servidor.
+El metodo _send()_ acepta un solo argumento, que es la informacion a enviar en el cuerpo de la peticion. Si no se necesita cuerpo para enviar datos se le debe pasar _null_, ya que este argumento es obligatorio en algunos navegadores. Cuando se llama al _send()_ es cuando la request viaja hacia al servidor.
+
+Como la request es asincrona, el codigo de javascript no esperara a la respuesta para continuar la ejecucion del programa, el cual seguira de inmediato con la siguiente instruccion a ejecutar.
+
+Cuando la respuesta se recibe, las propiedades del objeto XHR se rellenan con informacion. Las propiedad relevantes son:
+* _responseText_ -- El texto que se retorna como cuerpo de la response.
+* _responseXML_ -- Contiene un document XML con la informacion de la response, siempre que la response contenga su content type establecido como _"text/xml"_ o _"application/xml"_.
+* _status_ -- El codigo HTTP de la response.
+* _statusText_ -- La descripcion del codigo HTTP de la response.
+

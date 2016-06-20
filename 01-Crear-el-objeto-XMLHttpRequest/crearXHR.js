@@ -1,1 +1,1 @@
-
+var xhr = new XMLHttpRequest();

@@ -46,4 +46,37 @@ if ( (xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
   console.log("Ha ocurrido un error: " + xhr.status);
 }
 ```
+Es siempre recomendable utilizar la propiedad _status_ y no la propiedad _statusText_ ya que esta ultima puede variar segun que navegador.
 
+Como curiosidad conviene decir que no conviene utilizar el codigo HTTP 204, porque en algunos navegadores antiguos puede dar lugar a error y se normaliza a 200.
+
+El objeto XHR tiene la propiedad _readyState_ que indica en que fase de la request/response nos encontramos. Los posibles valores que puede tener son:
+* 0 -- Uninitialized. El metodo _open()_ no ha sido llamado aun.
+* 1 -- Open. El metodo _open()_ ha sido llamado pero no _send()_.
+* 2 -- Sent. El metodo _send()_ ha sido llamado pero la response no ha sido recibida.
+* 3 -- Receiving. Parte de la response ha sido recibida pero no entera.
+* 4 -- Complete. Toda la informacion de la response ha sido recibida y esta disponible.
+
+Cada vez que la propiedad _readyState_ cambia de un valor a otro, se lanza el evento _readystatechange_. Se utiliza este evento para comprobar el valor de _readyState_. Normalmente, el valor que nos interesa el *4*, que es el que indica que la response esta disponible. Por compatibilidad de navegadores se suele utilizar _onreadystatechange_ de la siguiente manera:
+
+```javascript
+var xhr = new XMLHttpRequest();
+
+xhr.onreadystatechange = function() {
+  if (xhr.readyState == 4) {
+    if ( (xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+      console.log(xhr.responseText);
+    } else {
+      console.log("Ha ocurrido un error: " + xhr.status);
+    } 
+  }
+};
+
+xhr.open("get", "ejemplo.php", true);
+xhr.send(null);
+```
+
+Se puede cancelar una request utilizando el metodo _abort()_:
+```javascript
+xhr.abort();
+```

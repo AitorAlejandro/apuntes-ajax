@@ -45,3 +45,8 @@ El servidor podra por lo tanto leer los valores de estas cabeceras y actuar en c
 
 Puedes obtener las cabeceras de la response utilizando el metodo _getResponseHeader()_ pasandole como argumento el nombre de la cabecera a obtener.
 Tambien se pueden obtener todas las cabeceras con _getAllResponseHeaders()_
+
+```javascript
+var miCabecera = xhr.getResponseHeader("MiCabecera");
+var cabeceras = xhr.getAllResponseHeaders();
+```

@@ -13,6 +13,8 @@ Por defecto, las siguientes cabeceras se envian con cada request XHR:
 * _Referer_ -- La URI de la pagina desde la que se hace la request.
 * _User-Agent_ -- La cadena de agente del navegador.
 
+## setRequestHeader()
+
 Se pueden establecer cabeceras personalizadas utilizando el metodo _setRequestHeader()_. El metodo acepta dos argumentos:
 * El nombre de la cabecera
 * El valor de la cabecera
@@ -37,4 +39,9 @@ xhr.setRequestHeader("MiCabecera", "valorCabecera");
 xhr.send(null);
 ```
 
-El servidor podra por lo tanto leer estas cabeceras y actuar en consecuncia de sus valores. No se recomienda en absoluto sobreescribir las cabeceras estandar.
+## setRequestHeader() y getAllResponseHeaders()
+
+El servidor podra por lo tanto leer los valores de estas cabeceras y actuar en consecuencia. No se recomienda en absoluto sobreescribir las cabeceras estandar. Utiliza las tuyas propias.
+
+Puedes obtener las cabeceras de la response utilizando el metodo _getResponseHeader()_ pasandole como argumento el nombre de la cabecera a obtener.
+Tambien se pueden obtener todas las cabeceras con _getAllResponseHeaders()_

@@ -1,25 +1,25 @@
 # HTTP Headers
 
-Cada request y response HTTP envia consigo un grupo de cabeceras que pueden ser de interes para desarrollador. El objeto XHR tiene cabeceras para la request y para la response.
+Cada request y response HTTP envia consigo un grupo de cabeceras que pueden ser de interés para el desarrollador. El objeto XHR tiene cabeceras para la request y para la response.
 
 Por defecto, las siguientes cabeceras se envian con cada request XHR:
 * _Accept_ -- Los content type que el navegador soporta.
 * _Accept-Charset_ -- El juego de caracteres que el navegador puede mostrar.
-* _Accept-Encoding_ -- Encoding de compresion soportados por el navegador.
+* _Accept-Encoding_ -- Encoding de compresión soportados por el navegador.
 * _Accept-Language_ -- El idioma/s que el navegador/usuario tiene elegidos.
-* _Connection_ -- El tipo de conexion que el navegador esta haciendo al servidor.
-* _Cookie_ -- Cualquier cookie establecida en la pagina.
-* _Host_ -- El dominio de la pagina que realiza la request.
-* _Referer_ -- La URI de la pagina desde la que se hace la request.
+* _Connection_ -- El tipo de conexión que el navegador está haciendo al servidor.
+* _Cookie_ -- Cualquier cookie establecida en la página.
+* _Host_ -- El dominio de la página que realiza la request.
+* _Referer_ -- La URI de la página desde la que se hace la request.
 * _User-Agent_ -- La cadena de agente del navegador.
 
 ## setRequestHeader()
 
-Se pueden establecer cabeceras personalizadas utilizando el metodo _setRequestHeader()_. El metodo acepta dos argumentos:
+Se pueden establecer cabeceras personalizadas utilizando el método _setRequestHeader()_. El método acepta dos argumentos:
 * El nombre de la cabecera
 * El valor de la cabecera
 
-_setRequestHeader()_ debe llamarse siempre despues de _open()_ pero antes de _send()_ :
+_setRequestHeader()_ debe llamarse siempre después de _open()_ pero antes de _send()_ :
 
 ```javascript
 var xhr = new XMLHttpRequest();
@@ -41,10 +41,10 @@ xhr.send(null);
 
 ## setRequestHeader() y getAllResponseHeaders()
 
-El servidor podra por lo tanto leer los valores de estas cabeceras y actuar en consecuencia. No se recomienda en absoluto sobreescribir las cabeceras estandar. Utiliza las tuyas propias.
+El servidor podrá por lo tanto leer los valores de estas cabeceras y actuar en consecuencia. No se recomienda en absoluto sobreescribir las cabeceras estandar. Utiliza las tuyas propias.
 
-Puedes obtener las cabeceras de la response utilizando el metodo _getResponseHeader()_ pasandole como argumento el nombre de la cabecera a obtener.
-Tambien se pueden obtener todas las cabeceras con _getAllResponseHeaders()_
+Puedes obtener las cabeceras de la response utilizando el método _getResponseHeader()_ pasándole como argumento el nombre de la cabecera a obtener.
+También se pueden obtener todas las cabeceras con _getAllResponseHeaders()_
 
 ```javascript
 var miCabecera = xhr.getResponseHeader("MiCabecera");

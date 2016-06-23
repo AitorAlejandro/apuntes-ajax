@@ -1,14 +1,14 @@
 #GET Request
 
-Es el tipo mas comun de peticiones, la cual se realiza cuando se pide informacion o datos de algun tipo al servidor. Si es necesario se le pueden pasar argumentos a la peticion en forma de query string. La query string se agrega a la URL. Esta query string debe ser codificada correctamente cuando se utiliza el metodo _open()_.
+Es el tipo más comun de peticiones, la cual se realiza cuando se pide informacion de algun tipo al servidor. Si es necesario se le puede pasar argumentos a la petición en forma de query string. La query string se concatena a la URL. Esta query string debe ser codificada correctamente cuando se utiliza el método _open()_.
 
-Uno de los errores mas comunes en las peticiones GET es tener mal formateada la query string. Dentro de la query string cada nombre y valor debe codificarse utiizando el metodo _encodeURIComponent()_, y cada par nombre valor debe separarse mediante un _ampersand_ *&*.
+Uno de los errores más comunes en las peticiones GET es tener mal formateada la query string. Dentro de la query string cada nombre y valor debe codificarse utilizando el método _encodeURIComponent()_, y cada par nombre-valor debe separarse mediante un _ampersand_ *&*.
 
 ```javascript
 xhr.open("get", "ejemplo.php?nombre1=valor1&nombre2=valor2", true);
 ```
 
-La siguiente funcion ayuda a agregar un par nombre y valor a una URL.
+La siguiente función ayuda a concatenar un par nombre-valor a una URL.
 
 ```javascript
 function agregarParametroURL(url, nombre, valor) {
@@ -19,11 +19,11 @@ function agregarParametroURL(url, nombre, valor) {
 ```
 
 _agregarParametroURL()_ recibe tres argumentos:
-* La URL a la que incluir el parametro
-* El nombre del parametro
-* El valor del parametro
+* La URL a la que incluir el parámetro
+* El nombre del parámetro
+* El valor del parámetro
 
-Esta funcion puede usarse para preparar un URL con parametros para posteriormente hacer la peticion GET.
+Esta función puede usarse para preparar una URL con parámetros para posteriormente hacer la petición GET.
 
 ```javascript
 var url = "ejemplo.php";

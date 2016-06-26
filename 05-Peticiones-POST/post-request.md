@@ -15,7 +15,7 @@ xhr.send(data);
 Por defecto, una request POST no es igual que un submit de un formulario. El servidor necesitara leer los datos _en crudo_ para recorgerlos. En PHP no llegarian en *$_POST* si no en *$HTTP_RAW_POST_DATA* Se puede, sin embargo, simular el submit de un formulario estableciendo la cabecera _Content-Type_ con el valor _application/x-www-form-urlencoded_, y pasandole un String con el formato correcto, es decir como una _query string_. Si el formulario ya se encuentra en la pagina debe ser serializado antes de enviarse via XHR.
 
 ```javascript
-function serialiar(formulario) {
+function serializar(formulario) {
   
   var parts = [],
   field = null,
@@ -69,7 +69,9 @@ function serialiar(formulario) {
   }
   return parts.join("&");
 }
+```
 
+```javascript
 function enviarDatos() {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
@@ -85,6 +87,6 @@ function enviarDatos() {
   xhr.open("post", "ejemplo.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   var formu = document.getElementById("formId");
-  xhr.send(serialiar(formu));
+  xhr.send(serializar(formu));
 }
 ```

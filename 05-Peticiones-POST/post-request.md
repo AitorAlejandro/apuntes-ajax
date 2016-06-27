@@ -1,19 +1,20 @@
 # POST Request
 
-Tipicamente este tipo de request se utiliza para enviar datos al servidor que deberian ser guardados. Se espera que en cada request POST se envien datos en el cuerpo de la request. El cuerpo puede contener una cantidad muy alta de datos, y estos datos pueden estar en cualquier formato.
+Típicamente este tipo de request se utiliza para enviar datos al servidor que deberían ser guardados. Se espera que en cada request POST se envien datos en el cuerpo de la request. El cuerpo puede contener una alta cantidad de datos, y estos datos pueden estar en cualquier formato.
 
-Para iniciar una peticion POST:
+Para iniciar una petición POST:
 ```javascript
 xhr.open("post", "ejemplo.php", true);
 ```
 
-La segunda parte es pasarle al servidor los datos. Como XHR fue dise;ado originalmente para trabajar con XML, se puede pasar directamente un documento XML. Tambien se puede pasar cualquier String.
+La segunda parte es pasarle al servidor los datos. Como XHR fue diseñado originalmente para trabajar con XML, se puede pasar directamente un documento XML. También se puede pasar cualquier String.
 ```javascript
 xhr.send(data);
 ```
 
-Por defecto, una request POST no es igual que un submit de un formulario. El servidor necesitara leer los datos _en crudo_ para recorgerlos. En PHP no llegarian en *$_POST* si no en *$HTTP_RAW_POST_DATA* Se puede, sin embargo, simular el submit de un formulario estableciendo la cabecera _Content-Type_ con el valor _application/x-www-form-urlencoded_, y pasandole un String con el formato correcto, es decir como una _query string_. Si el formulario ya se encuentra en la pagina debe ser serializado antes de enviarse via XHR.
+Por defecto, una request POST no es igual que un submit de un formulario. El servidor necesitará leer los datos _en crudo_ para recorgerlos. En PHP no llegarían en *$_POST* si no en *$HTTP_RAW_POST_DATA* Se puede, sin embargo, simular el submit de un formulario estableciendo la cabecera _Content-Type_ con el valor _application/x-www-form-urlencoded_, y pasándole un String con el formato correcto, es decir, como una _query string_. Si el formulario ya se encuentra en la página debe ser serializado antes de enviarse vía XHR.
 
+Para serializar el formulario podemos utilizar la función _serializar()_.
 ```javascript
 function serializar(formulario) {
   
@@ -71,6 +72,7 @@ function serializar(formulario) {
 }
 ```
 
+Y con esta otra función enviaríamos los datos por AJAX simulando el envío de un POST de un formulario.
 ```javascript
 function enviarDatos() {
   var xhr = new XMLHttpRequest();

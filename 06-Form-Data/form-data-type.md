@@ -31,5 +31,5 @@ xhr.onreadystatechange = function() {
 
 xhr.open("post", "ejemplo.php", true);
 var formu = document.getElementById('formId');
-xhr.send(formu);
+xhr.send( new FormData(formu) );
 ```

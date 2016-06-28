@@ -92,3 +92,5 @@ function enviarDatos() {
   xhr.send(serializar(formu));
 }
 ```
+
+En terminos de eficiencia, las peticiones GET son bastante mas rapidas que las POST enviando la misma cantidad de datos, por lo tanto eligiremos adecuadamente entre ellas segun la accion que se quiera realizar. Si hay que enviar bastante informacion conviene saber que las peticiones GET tienen su limite que depende segun navegadores y proxies.

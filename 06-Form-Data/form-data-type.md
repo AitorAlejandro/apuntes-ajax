@@ -33,3 +33,5 @@ xhr.open("post", "ejemplo.php", true);
 var formu = document.getElementById('formId');
 xhr.send( new FormData(formu) );
 ```
+
+Una de las ventajas de usar _FormData_ es que no hay que establecer cabeceras. El objeto XHR configura las cabeceras de forma automatica. 

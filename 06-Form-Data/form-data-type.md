@@ -1,21 +1,21 @@
 # Form Data type
 
-La serializacion de un formulario es algo comun a realizar en las aplicaciones web. La especificacion XMLHttpRequest Level 2 incluye el tipo de dato _FormData_. _FormData_ permite serializar formularios existentes y crear un formato de formulario desde otros datos de forma correcta para su uso via AJAX.
+La serialización de un formulario es algo común a realizar en las aplicaciones web. La especificación XMLHttpRequest Level 2 incluye el tipo de dato _FormData_. _FormData_ permite serializar formularios existentes y simular un formato de formulario desde otros datos de para su uso vía AJAX.
 
-El siguiente codigo crea un objeto _FormData_:
+El siguiente código crea un objeto _FormData_:
 ```javascript
 var datos = new FormData();
 datos.append("nombre", "Aitor");
 ```
 
-El metodo _append()_ acepto dos argumentos, una clave (el nombre del parametro) y un valor (el valor que tiene el parametro). Se pueden a;adir tantas clave-valor como se quiera.
+El método _append()_ acepta dos argumentos, una clave (el nombre del parametro) y un valor (el valor que tiene el parametro). Se pueden añadir tantos pares clave-valor como se quiera.
 
-Tambien es posible que se genere automaticamente un _FormData_ de forma directa.
+También es posible que se genere automáticamente un _FormData_ de forma directa.
 ```javascript
 var datos = new FormData(document.getElementById('formuId'));
 ```
 
-Un objeto _FormData_ puede enviarse directamente en el objeto XHR a traves de su metodo _send()_.
+Un objeto _FormData_ puede enviarse directamente en el objeto XHR a traves de su método _send()_.
 
 ```javascript
 var xhr = new XMLHttpRequest();
@@ -34,4 +34,4 @@ var formu = document.getElementById('formId');
 xhr.send( new FormData(formu) );
 ```
 
-Una de las ventajas de usar _FormData_ es que no hay que establecer cabeceras. El objeto XHR configura las cabeceras de forma automatica. 
+Una de las ventajas de usar _FormData_ es que no hay que establecer cabeceras. El objeto XHR configura las cabeceras de forma automática. 

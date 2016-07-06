@@ -1,4 +1,4 @@
-# El metodo overrideMimeType()
+# El método overrideMimeType()
 
 _overrideMimeType()_ ofrece una manera de sobreescribir el tipo MIME de una respuesta XHR. Ya que el tipo MIME de una response determina la manera en que va a ser tratada, viene muy bien poder sobreescribir el tipo devuelto.
 

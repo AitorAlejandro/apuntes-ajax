@@ -93,4 +93,4 @@ function enviarDatos() {
 }
 ```
 
-En terminos de eficiencia, las peticiones GET son bastante mas rapidas que las POST enviando la misma cantidad de datos, por lo tanto eligiremos adecuadamente entre ellas segun la accion que se quiera realizar. Si hay que enviar bastante informacion conviene saber que las peticiones GET tienen su limite que depende segun navegadores y proxies.
+En términos de eficiencia, las peticiones GET son bastante más rápidas que las POST enviando la misma cantidad de datos, por lo tanto eligiremos adecuadamente entre ellas segun la acción que se quiera realizar. Si hay que enviar bastante información conviene saber que las peticiones GET tienen su límite que depende segun navegadores y/o proxies.
